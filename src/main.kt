@@ -36,4 +36,21 @@ fun main() {
     println("\n5. Меняем статус:")
     task1.isCompleted = true
     println("task1: $task1")
+
+    val dev = DevelopmentDepartment()
+    val test = TestingDepartment()
+
+    println("Отдел 1:")
+    println("Название: ${dev.departmentName}")
+    dev.printDepartmentGoal()
+
+    println("\nОтдел 2:")
+    println("Название: ${test.departmentName}")
+    test.printDepartmentGoal()
+    val devDepartment = DevelopmentDepartment()
+    val reports: List<ReportGenerator> = listOf(employee, devDepartment)
+    for (report in reports) {
+        println(report.generateReport())
+        println()
+    }
 }

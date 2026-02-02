@@ -1,4 +1,4 @@
-class Employee {
+class Employee: ReportGenerator {
     private var fullName: String = ""
     private var position: String = ""
     private var salary: Int = 0
@@ -44,5 +44,13 @@ class Employee {
         println("Должность: $position")
         println("Зарплата: $salary руб.")
         println("Опыт работы: $yearsOfExperience лет")
+    }
+    override fun generateReport(): String {
+        return """
+        ФИО: $fullName
+        Должность: $position
+        Зарплата: $salary руб.
+        Опыт работы: $yearsOfExperience лет
+    """.trimIndent()
     }
 }
