@@ -3,6 +3,7 @@ class Employee: ReportGenerator {
     private var position: String = ""
     private var salary: Int = 0
     private var yearsOfExperience: Int = 0
+    private var currentTask: Task? = null
     fun getFullName(): String {
         return fullName
     }
@@ -45,7 +46,26 @@ class Employee: ReportGenerator {
         println("Зарплата: $salary руб.")
         println("Опыт работы: $yearsOfExperience лет")
     }
+    fun assignTask(newTask: Task) {
+        if (currentTask != null && currentTask?.isCompleted == false) {
+            println("Сотрудник $fullName уже занят задачей '${currentTask?.title}'")
+        } else {
+            currentTask = newTask
+            println("Сотруднику $fullName назначена задача: '${newTask.title}'")
+        }
+    }
+    fun completeTask() {
+        currentTask?.isCompleted = true
+        println("Задача '${currentTask?.title}' завершена")
+    }
+    fun getCurrentTask(): Task? = currentTask
+
     override fun generateReport(): String {
+        val taskInfo = if (currentTask != null) {
+            "Текущая задача: ${currentTask?.title} (${if (currentTask?.isCompleted == true) "завершена" else "в процессе"})"
+        } else {
+            "Текущая задача: нет"
+        }
         return """
         ФИО: $fullName
         Должность: $position

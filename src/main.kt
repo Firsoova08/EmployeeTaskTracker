@@ -53,4 +53,11 @@ fun main() {
         println(report.generateReport())
         println()
     }
+        val taskA = Task("Код", "Написать код", Priority.HIGH)
+        val taskB = Task("Тесты", "Протестировать", Priority.MEDIUM)
+        employee.assignTask(taskA)
+        employee.assignTask(taskB)
+        employee.completeTask()
+        employee.assignTask(taskB)
+
 }
