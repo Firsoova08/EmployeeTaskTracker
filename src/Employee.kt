@@ -6,26 +6,38 @@ class Employee {
     fun getFullName(): String {
         return fullName
     }
-    fun setFullName(name: String) {
-        fullName = name
-    }
     fun getPosition(): String {
         return position
-    }
-    fun setPosition(pos: String) {
-        position = pos
     }
     fun getSalary(): Int {
         return salary
     }
-    fun setSalary(sal: Int) {
-        salary = sal
-    }
     fun getYearsOfExperience(): Int {
         return yearsOfExperience
     }
+    fun setFullName(name: String) {
+        fullName = name
+    }
+    fun setPosition(pos: String) {
+        position = pos
+    }
+    fun setSalary(sal: Int) {
+        if (sal >= 0) {
+            salary = sal
+        } else {
+            println("Внимание: зарплата не может быть отрицательной! Оставляем старое значение: $salary")
+        }
+    }
     fun setYearsOfExperience(years: Int) {
-        yearsOfExperience = years
+        if (years >= 0 && years <= 50) {
+            yearsOfExperience = years
+        } else if (years < 0) {
+            println("Внимание: опыт работы не может быть отрицательным! Устанавливаем 0.")
+            yearsOfExperience = 0
+        } else {
+            println("Внимание: опыт работы ограничен 50 годами! Устанавливаем 50.")
+            yearsOfExperience = 50
+        }
     }
     fun displayInfo() {
         println("Сотрудник: $fullName")
