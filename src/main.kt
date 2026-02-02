@@ -18,5 +18,22 @@ fun main() {
     println("Зарплата: ${employee.getSalary()}")
     println("Опыт работы: ${employee.getYearsOfExperience()} лет")
     employee.displayInfo()
-
+    val task1 = Task("Лабораторная", "Сделать задание", Priority.HIGH)
+    val task2 = Task("Лабораторная", "Сделать задание", Priority.HIGH)
+    val task3 = Task("Презентация", "Подготовить слайды", Priority.MEDIUM)
+    println("1. toString():")
+    println(task1)
+    println(task3)
+    println("\n2. equals():")
+    println("task1 == task2: ${task1 == task2}")
+    println("task1 == task3: ${task1 == task3}")
+    println("\n3. hashCode():")
+    println("task1 hash: ${task1.hashCode()}")
+    println("task2 hash: ${task2.hashCode()}")
+    println("\n4. copy() с изменением:")
+    val task4 = task1.copy(priority = Priority.LOW)
+    println("task4: $task4")
+    println("\n5. Меняем статус:")
+    task1.isCompleted = true
+    println("task1: $task1")
 }
