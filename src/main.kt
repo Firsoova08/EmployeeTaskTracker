@@ -18,4 +18,5 @@ fun main() {
     println("Зарплата: ${employee.getSalary()}")
     println("Опыт работы: ${employee.getYearsOfExperience()} лет")
     employee.displayInfo()
+
 }
